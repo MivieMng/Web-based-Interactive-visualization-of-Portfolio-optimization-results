@@ -1,7 +1,7 @@
 -  **If you only want to get  a static view of our interactive tool** , just download and open the htm file (**Static_view_of_my_interactive_webpage.html**) in your browser (we recommend chrome).<br/>
 - To get an **interactive webpage** you can do it in two different ways : using our Software (**"MIPOpti"**) or using our python scripts
   - **Using our Software** : Download the **web_interactive_viz.zip** from the  **"releases"** section of this repository : https://github.com/MivieMng/Web-based-Interactive-visualization-of-Portfolio-optimization-results/releases. Unzip it in your local directory, and you will find inside the unzipped file the Software called **"MIPOpti"**, just click on it, it will open a windows terminal and print you a local "web address"  that you should copy into your browser (chrome is recommended), and then you will get an interactive webpage. After the windows terminal has popped up you may wait a few minutes before seeing the local address, the speed depends on your harddware.
-  - **Using our python script** : you need to read the sections **Installation**  and **Usage of the Web-based application**.
+  - **Using our python scripts** : you need to read the sections **Installation**  and **Usage of the Web-based application**.
 
 # Web-based Interactive visualization of the results of a Portfolio optimization
 This project builds a webpage for an interactive visualization of the results obtained through the optimization of a portfolio of up to 10 assets. This project was an assignement for the course on Data Visualization that I followed during the 2019-2020 accademic year.\
