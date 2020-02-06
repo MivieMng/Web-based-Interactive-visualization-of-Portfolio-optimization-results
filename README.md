@@ -35,7 +35,7 @@ The data downloaded from the website needed to be processed. Our processing func
 We used the library cvxopt (http://cvxopt.org/) to compute the efficient frontier. This library requires the user to define the optimization problem. In our case we defined the problem of optimizing a portfolio with the short sell constraint. The optimization problem actually consists in finding the best combination of the assets that offer the best sharp ratio.<br/>
 
 ## Visualization
-We used two visualization libraries that belong to the same company. The library "plotly" (https://plot.ly/) creates interactive plots, while the library "Dash" (https://plot.ly/dash/) creates web-based interactive plots (using plotly). We interfaced our optimization tools with these libraries to obtain a web-based interactive visualization of the results of a portfolio optimization.  
+We used two visualization libraries that belong to the same company. The library "plotly" (https://plot.ly/) creates interactive plots, while the library "Dash" (https://plot.ly/dash/) creates web-based interactive plots (using plotly). We interfaced our optimization tools with these libraries to obtain a web-based interactive visualization of the results of a portfolio optimization.
 
 
 # Installation
