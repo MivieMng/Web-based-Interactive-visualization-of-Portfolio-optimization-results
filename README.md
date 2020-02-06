@@ -1,6 +1,6 @@
 -  **If you only want to get  a static view of our interactive tool** , just download and open the htm file (**Static_view_of_my_interactive_webpage.html**) in your browser (we recommend chrome).<br/>
 - To get an **interactive webpage** you can do it in two different ways : 
-  - Download the Software 
+  - Download the Software in the  
   - need to follow the installation steps and the section **Usage of the Web-based application**
 
 # Web-based Interactive visualization of the results of a Portfolio optimization
