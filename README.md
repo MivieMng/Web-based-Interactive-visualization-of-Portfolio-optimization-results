@@ -70,7 +70,7 @@ you can click the on the figures to get a better view
 ![](images/page1.png)
 
 
-![](images/page3.png)
+![](images/page_4.png)
 
 
 
