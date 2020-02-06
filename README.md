@@ -19,7 +19,7 @@ The main features of this project are :
 - The user can **interact with the graphs**. One can perform operations like zoom in and out, displaying values of single data points, removing the graphs of some assets and only keeping the one needed for your analysis, etc.
 - Changing the number of **assets to be optmized** may change the following figures:  
   - **the monthly returns of the individual stocks** : is always changed
-  - **the Efficient Frontier and the Capital Allocation Line** depends on the impact of the removed or added stocks, while the              points representing the **individual stocks** are proportional to the number of stocks.
+  - **the Efficient Frontier and the Capital Allocation Line** depend on the impact of the removed or added stocks, while the              points representing the **individual stocks** are proportional to the number of stocks.
   - **the allocation of a capital of 10k€ between the risky stocks and one risk-free stock** : is always changed
 - Changing the **risk aversion** will only change the figure for **the allocation of a capital of 10k€ between the risky stocks and one risk-free stock**
 - We decided not to change the Covariance matrix based on the inputs, so that the user always has a view of all correlations.<br/>
@@ -31,11 +31,11 @@ The data downloaded from the website needed to be processed. Our processing func
 - The time period of the 10 stocks do not run over the same time interval. The processing function finds the intersection between the dates of the 10 stocks, because the time series must have the same length.
 -  Sometimes in the downloaded file you can find some string characters (i.e. "C"), in our case we found the character "C" in the returns data of some stocks. The removal of such characters is performed by our processing function.
 
-## Portfolio optmization
+## Portfolio optimization
 We used the library cvxopt (http://cvxopt.org/) to compute the efficient frontier. This library requires the user to define the optimization problem. In our case we defined the problem of optimizing a portfolio with the short sell constraint. The optimization problem actually consists in finding the best combination of the assets that offer the best sharp ratio.<br/>
 
 ## Visualization
-We used two visualization libraries that belong to the same company. The library "plotly" (https://plot.ly/) creates interactive plots, while the library "Dash" (https://plot.ly/dash/) creates web-based interactive plots (using plotly). We interface our optimization tools with these libraries to obtain a web-based interactive visualization of the results of a portfolio optimization.
+We used two visualization libraries that belong to the same company. The library "plotly" (https://plot.ly/) creates interactive plots, while the library "Dash" (https://plot.ly/dash/) creates web-based interactive plots (using plotly). We interfaced our optimization tools with these libraries to obtain a web-based interactive visualization of the results of a portfolio optimization.  
 
 
 # Installation
