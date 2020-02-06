@@ -1,5 +1,5 @@
 -  **If you only want to get  a static view of our interactive tool** , just download and open the htm file (**Static_view_of_my_interactive_webpage.html**) in your browser (we recommend chrome).<br/>
-   - To get an **interactive webpage** you need to follow the installation steps and the section **Usage of the Web-based application**
+- To get an **interactive webpage** you need to follow the installation steps and the section **Usage of the Web-based application**
 
 # Web-based Interactive visualization of the results of a Portfolio optimization
 This project builds a webpage for an interactive visualization of the results obtained through the optimization of a portfolio of up to 10 assets. This project was an assignement for the course on Data Visualization that I followed during the 2019-2020 accademic year.\
