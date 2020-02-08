@@ -1,4 +1,7 @@
-**If you only want to get  a static view of our interactive tool, just download and open the htm file (Web_based_Data_Viz/Static_html.html) in your browser (we recommend chrome)**.
+-  If you only want **to get  a static view of our interactive tool** , just download and open the htm file (**Static_view_of_my_interactive_webpage.html**) in your browser (we recommend chrome).<br/>
+- To get an **interactive webpage** you can do it in two different ways : using our Software (**"MIPOpti"**), this is the easiest way, or using our python scripts. We built **MIPOpti** to ease the use of this project, indeed using our software you don't need to install anything, all you have to do is to download and run it. For the moment this software only runs under Windows.
+  - **Using our Software** : Download the zip folder **"web_interactive_viz.zip"** from the  **"releases"** section of this repository : https://github.com/MivieMng/Web-based-Interactive-visualization-of-Portfolio-optimization-results/releases. Unzip it in your local directory, and you will find inside the unzipped file the Software called **"MIPOpti"**, just click on it, it will open a windows terminal and print you a local "web address"  that you should copy into your browser (chrome is recommended), and then you will get an interactive webpage. After the windows terminal has popped up you may wait a few minutes before seeing the local address, the speed depends on your hardware.
+  - **Using our python scripts** : you need to read the sections **Installation**  and **Usage of the Web-based application**.
 
 # Web-based Interactive visualization of the results of a Portfolio optimization
 This project builds a webpage for an interactive visualization of the results obtained through the optimization of a portfolio of up to 10 assets. This project was an assignement for the course on Data Visualization that I followed during the 2019-2020 accademic year.\
@@ -19,7 +22,7 @@ The main features of this project are :
 - The user can **interact with the graphs**. One can perform operations like zoom in and out, displaying values of single data points, removing the graphs of some assets and only keeping the one needed for your analysis, etc.
 - Changing the number of **assets to be optmized** may change the following figures:  
   - **the monthly returns of the individual stocks** : is always changed
-  - **the Efficient Frontier and the Capital Allocation Line** depends on the impact of the removed or added stocks, while the              points representing the **individual stocks** are proportional to the number of stocks.
+  - **the Efficient Frontier and the Capital Allocation Line** depend on the impact of the removed or added stocks, while the              points representing the **individual stocks** are proportional to the number of stocks.
   - **the allocation of a capital of 10k€ between the risky stocks and one risk-free stock** : is always changed
 - Changing the **risk aversion** will only change the figure for **the allocation of a capital of 10k€ between the risky stocks and one risk-free stock**
 - We decided not to change the Covariance matrix based on the inputs, so that the user always has a view of all correlations.<br/>
@@ -31,11 +34,11 @@ The data downloaded from the website needed to be processed. Our processing func
 - The time period of the 10 stocks do not run over the same time interval. The processing function finds the intersection between the dates of the 10 stocks, because the time series must have the same length.
 -  Sometimes in the downloaded file you can find some string characters (i.e. "C"), in our case we found the character "C" in the returns data of some stocks. The removal of such characters is performed by our processing function.
 
-## Portfolio optmization
+## Portfolio optimization
 We used the library cvxopt (http://cvxopt.org/) to compute the efficient frontier. This library requires the user to define the optimization problem. In our case we defined the problem of optimizing a portfolio with the short sell constraint. The optimization problem actually consists in finding the best combination of the assets that offer the best sharp ratio.<br/>
 
 ## Visualization
-We used two visualization libraries that belong to the same company. The library "plotly" (https://plot.ly/) creates interactive plots, while the library "Dash" (https://plot.ly/dash/) creates web-based interactive plots (using plotly). We interface our optimization tools with these libraries to obtain a web-based interactive visualization of the results of a portfolio optimization.
+We used two visualization libraries that belong to the same company. The library "plotly" (https://plot.ly/) creates interactive plots, while the library "Dash" (https://plot.ly/dash/) creates web-based interactive plots (using plotly). We interfaced our optimization tools with these libraries to obtain a web-based interactive visualization of the results of a portfolio optimization.
 
 
 # Installation
