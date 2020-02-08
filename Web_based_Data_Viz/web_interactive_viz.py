@@ -4,6 +4,7 @@ import dash_html_components as html
 from portfolio_optimization import portfolio
 import plotly.figure_factory as ff
 from dash.dependencies import Output, Input, State
+import dash_bootstrap_components as dbc
 
 
 # textwrap.dedent(your_string)
@@ -23,6 +24,7 @@ def separate_positive_negative(values, names):
 external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
 
 app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
+server = app.server
 data_path = "Data.xlsx"
 data_dict, returns_df, dates = portfolio(data_path, 3)
 cov_matrix = returns_df.cov().round(4)
@@ -42,7 +44,34 @@ fig1.update_layout(
 # fig1.add_annotation(
 #     go.layout.Annotation(align="center"))
 debug = 1
+# html.H1('Heading', style={'backgroundColor':'blue'}),
+colors = {
+    'background': '#61566f',
+    'text': '#7FDBFF'
+}
+
 app.layout = html.Div([
+    html.Div(
+        [html.H2(
+            children=['Data Visualization Assignment'],
+            style={
+                'color': "white",
+                'backgroundColor': colors['background']
+            }), ]
+    ),
+    html.Div(
+        dcc.Markdown('''
+This web application that can be used to optimize a portfolio of assets and  display interactively the results.
+We downloaded the returns data of 10 stocks from [the website of the University of Pennsylvania](https://wrds-www.wharton.upenn.edu/).
+We used two visualization libraries [plotly](https://plot.ly/) and [dash](https://plot.ly/dash/) and one optimization library [cvxopt](https://cvxopt.org/).
+
+ ***
+''', style={'backgroundColor': 'white'})),
+    # dcc.Markdown("**weights**", id="Mark-down", style={"white-space": "pre"}),
+    html.H4(
+        children='Inputs ',
+        style={
+            'color': "black"}),
     html.Label("Choose the stocks you want to analyze : use at least two"),
     dcc.Checklist(
         id="check",
@@ -80,18 +109,46 @@ app.layout = html.Div([
         marks={str(year + 1): str(year + 1) for year in range(10)},
 
     ),
-    dcc.Graph(
-        id='life-exp-vs-gdp',
-
-    ),
+    dcc.Markdown('''
+ ***
+''', style={'backgroundColor': 'white'}),
+    html.Div([
+        dcc.Graph(
+            id='life-exp-vs-gdp',
+        ),
+        dcc.Markdown('''
+            **Interpretation** : The monthly returns of the assets shows their performances. Assets with high variations can yield higher returns, but they are more volatile and therefore riskier.
+            
+            ***
+        ''', style={'backgroundColor': 'white'})]),
+    html.Div([
     dcc.Graph(
         figure=fig1,
     ),
+        dcc.Markdown('''
+                **Interpretation** : The covariance matrix highlights the correlations between each pair of assets in the portfolio. The higher the correlation the more the assets change (increase or decrease) in the same way.
+
+                ***
+            ''', style={'backgroundColor': 'white'})
+    ]),
+    html.Div([
     dcc.Graph(
         id='Eff',
     ),
-    dcc.Graph(
-        id='bar',
+        dcc.Markdown('''
+                **Interpretation** : The efficient frontier is the solution of the optimization of a portfolio. For each risk level the higher return is a point that belongs to the efficient frontier. The capital allocation line  can be used to determine how to 
+                share a bugdet between risky and a risk-free asset.
+                ***
+            ''', style={'backgroundColor': 'white'})]
+    ),
+    html.Div([
+        dcc.Graph(
+            id='bar',
+        ),
+    dcc.Markdown('''
+                **Interpretation** : The allocation of a bugdet of 10k euros between risky and one risk free asset.
+                
+            ''', style={'backgroundColor': 'white'})]
     ),
     # dcc.Markdown("**weights**", id="Mark-down")
 
@@ -118,13 +175,13 @@ def update_figure(stocks_names, risk_aversion):
             x=data_dict['EF_10_with_short'][0],
             y=data_dict['EF_10_with_short'][1],
             text="EF without short",
-            mode='markers',
+            mode='markers+line',
             opacity=1,
             marker={
                 'size': 13,
                 'line': {'width': 0.5, 'color': 'white'}
             },
-            name="Efficient Frontier without short",
+            name="Efficient Frontier with short",
             showlegend=True
         ),
         dict(
@@ -184,7 +241,6 @@ def update_figure(stocks_names, risk_aversion):
                )
            }, \
            {
-
                'data': data_eff_all,
                'layout': dict(
                    xaxis={'type': 'linear', 'title': 'risk'},
@@ -207,7 +263,7 @@ def update_figure(stocks_names, risk_aversion):
                        'line': {'width': 0.5, 'color': 'white'}
                    },
                    type="bar",
-                   name = "positive allocation"
+                   name="positive allocation"
                ),
                    dict(
                        x=negative["name"],
